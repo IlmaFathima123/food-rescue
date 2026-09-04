@@ -1,0 +1,60 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-paper text-ink font-sans antialiased;
+  }
+  h1, h2, h3, h4 {
+    @apply font-display text-ink;
+  }
+  :focus-visible {
+    outline: 2px solid #2F5D3A;
+    outline-offset: 2px;
+  }
+}
+
+@layer components {
+  /* Ticket-style card with a stub notch, used across food/reservation cards */
+  .ticket {
+    position: relative;
+    background: #fff;
+    border: 1px solid rgba(42, 35, 24, 0.12);
+  }
+  .ticket::before {
+    content: "";
+    position: absolute;
+    top: -1px;
+    right: 22px;
+    width: 12px;
+    height: 12px;
+    background: #F6F1E4;
+    border: 1px solid rgba(42, 35, 24, 0.12);
+    border-radius: 50%;
+    transform: translateY(-50%);
+  }
+  .ticket::after {
+    content: "";
+    position: absolute;
+    bottom: -1px;
+    right: 22px;
+    width: 12px;
+    height: 12px;
+    background: #F6F1E4;
+    border: 1px solid rgba(42, 35, 24, 0.12);
+    border-radius: 50%;
+    transform: translateY(50%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
